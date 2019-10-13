@@ -1,0 +1,38 @@
+1. Start ryu controller running simpleswitch_snort
+2. Start the containernet network
+3. Run test on docker host d1
+
+1. Running ryu and Snort in controllerinet.py:
+sudo ryu-manager ryu.app.simple_switch_snort
+
+1.5 Run ryu and snort along with flowmanager (web dashboard to monitor traffic):
+sudo ryu-manager ~/flowmanager/flowmanager.py ryu.app.simplswitch_snort
+
+2. Run containernet network (controllerinet.py)
+sudo python controllerinet.py
+
+3. Run test on docker host d1
+d1 python /mnt/vol1/WebTrafficSDN/vulatest.py
+
+4. Snort a specified number (100) of packets on interface snort0 and store logged file in tests dir:
+sudo snort -i snort0 -l /home/osboxes/Documents/tests -n 100
+
+4.5 Use -A unsock to send alerts to ryu controller:
+sudo snort -i s1-eth1 -A unsock -l /home/osboxes/Documents/tests/ -c /etc/snort/snort.conf
+
+5. Rename snort log to filename.pcap
+sudo mv snort.log.123456 filename.pcap
+
+6.0 Edit netmate flowcalc netAI-rules-stats-ni.xml
+- change output file location and name
+- change export name from "ac_file" to "netai_arff"
+
+6.1 Install libs for netmate flowcalc (https://github.com/danielarndt/netmate-flowcalc)
+- sudo apt-get install libreadline-dev
+- sudo apt-get install libxml2-dev
+
+6. netmate-flowcalc, Edit netAI-rules-stats-ni.xml to output the desired file name and location.
+sudo netmate -r netAI-rules-stats-ni.xml -f ~/Documents/tests/outlooktestuct.pcap 
+
+7. Start weka
+java -jar weka.jar
