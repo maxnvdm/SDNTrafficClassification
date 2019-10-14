@@ -38,3 +38,10 @@ sudo netmate -r netAI-rules-stats-ni.xml -f ~/Documents/tests/outlooktestuct.pca
 
 7. Start weka to open flow features and train classifier
 java -jar weka.jar
+
+For real-time classification, follow these steps:
+1. Run runnet.sh to start Ryu controller (running snort application) and the Containernet program (controllerinet.py)
+sudo bash runnet.sh
+
+2. Next run the the real-time classificaiton program in a separate terminal
+sudo bash classify.sh
