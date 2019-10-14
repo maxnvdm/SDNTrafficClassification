@@ -1,7 +1,9 @@
+General process followed for strating traffic generation in containernet
 1. Start ryu controller running simpleswitch_snort
 2. Start the containernet network
 3. Run test on docker host d1
 
+Steps followed, with commands
 1. Running ryu and Snort in controllerinet.py:
 sudo ryu-manager ryu.app.simple_switch_snort
 
@@ -31,8 +33,8 @@ sudo mv snort.log.123456 filename.pcap
 - sudo apt-get install libreadline-dev
 - sudo apt-get install libxml2-dev
 
-6. netmate-flowcalc, Edit netAI-rules-stats-ni.xml to output the desired file name and location.
+6.2 netmate-flowcalc, Edit netAI-rules-stats-ni.xml to output the desired file name and location.
 sudo netmate -r netAI-rules-stats-ni.xml -f ~/Documents/tests/outlooktestuct.pcap 
 
-7. Start weka
+7. Start weka to open flow features and train classifier
 java -jar weka.jar
