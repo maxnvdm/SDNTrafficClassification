@@ -1,3 +1,5 @@
+The Selenium traffic generation programs are vulatest.py, outlooktest.py and youtubetest.py
+
 General process followed for strating traffic generation in containernet
 1. Start ryu controller running simpleswitch_snort
 2. Start the containernet network
