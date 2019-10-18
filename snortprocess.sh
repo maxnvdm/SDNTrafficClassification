@@ -14,7 +14,7 @@ fi
 
 # Initiate packet capture on mirrored interface, saving results to capturedata.txt and printing to the terminal 
 sudo snort -i snort0 -l /home/osboxes/Documents/tests/snorts/ -n 200 | tee -a /home/osboxes/Documents/tests/pcaps/capturedata.txt
-# Conver snort packet capture into a pcap file (it is stored in a pcap format, thus requireing only a name change)
+# Convert snort packet capture into a pcap file (it is stored in a pcap format, thus requireing only a name change)
 sudo cp /home/osboxes/Documents/tests/snorts/snort.log.* /home/osboxes/Documents/tests/pcaps/filename.pcap &&
 # Invoke Netmate on the pcap file, using the -r flag to point Netmate to the flow feature rules to be used
 sudo ../netmate-flowcalc-master/src/netmate/netmate -r ../netmate-flowcalc-master/netAI-rules-stats-ni.xml -f ~/Documents/tests/pcaps/filename.pcap | tee -a /home/osboxes/Documents/tests/pcaps/capturedata.txt
