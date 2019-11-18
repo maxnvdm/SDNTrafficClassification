@@ -1,3 +1,6 @@
+Important To Note:
+- All of the following scripts were executed inside a linux 16.04 VM running in virtual box 
+
 Explanation of various files (further details can be found in the comments of  the files themselves):
 The Selenium traffic generation programs are vulatest.py, outlooktest.py and youtubetest.py. 
 These are run on the docker container inside the SDN.
@@ -14,10 +17,10 @@ Snortprocess.sh facilitates the live classificaiton process, consisting of:
 Controllerinet.py creates the SDN using Containernet, starting the docker host and switches and then running the various tests on the docker host.
 
 Runnet.sh is a bash script which starts the ryu controller, followed by running controllerinet.py.
-This script is for ease of use and essentailly runs commands 1 and 2 in from below.
+This script is for ease of use and essentailly runs commands 1. and 2. in from below.
 
 General process followed for strating traffic generation in containernet
-1. Start ryu controller running simpleswitch_snort
+1. Start ryu controller running simpleswitch_snort (https://ryu.readthedocs.io/en/latest/snort_integrate.html)
 2. Start the containernet network
 3. Run test on docker host d1
 
