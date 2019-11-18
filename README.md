@@ -1,5 +1,11 @@
 Important To Note:
-- All of the following scripts were executed inside a linux 16.04 VM running in virtual box 
+All of the following scripts were executed inside an ubuntu 16.04 VM running in virtual box. Running containernet outside of virtual box (on the native ubuntu OS) presented network configuration issues where the docker hosts could not connect to the internet through the SDN. 
+
+A list of all the prerequisite programs is still yet to be compiled. A few programs that are immediatly necessary are (all the following programs were installed on the vm inside virtual box):
+- Docker
+- Selenium
+- Ryu https://ryu.readthedocs.io/en/latest/index.html
+- Containernet (bare-metal install) https://containernet.github.io/#installation
 
 Explanation of various files (further details can be found in the comments of  the files themselves):
 The Selenium traffic generation programs are vulatest.py, outlooktest.py and youtubetest.py. 
