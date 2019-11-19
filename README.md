@@ -27,12 +27,19 @@ Controllerinet.py creates the SDN using Containernet, starting the docker host a
 
 Network diagram:
       +---------------------+
+      
       |      unixsock       |
+      
       |    Ryu  ==  snort   |
+      
       +----eth0-----eth1----+
+      
              |       |
+             
 +--------+   +----------+   +----------+
+
 | Docker |---| OFSwitch |---| Internet |
+
 +--------+   +----------+   +----------+
 
 Runnet.sh is a bash script which starts the ryu controller, followed by running controllerinet.py.
