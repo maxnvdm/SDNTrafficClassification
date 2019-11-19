@@ -25,17 +25,17 @@ Snortprocess.sh facilitates the live classificaiton process, consisting of:
 
 Controllerinet.py creates the SDN using Containernet, starting the docker host and switches and then running the various tests on the docker host.
 
-Network diagram:
+Network diagram (controller connected to OFSwitch which is connected to the docker host and the internet:
 
-         +---------------------+
+           +---------------------+
       
-         |      unixsock       |
+           |      unixsock       |
       
-         |    Ryu  ==  snort   |
+           |    Ryu  ==  snort   |
       
-         +----eth0-----eth1----+
+           +----eth0-----eth1----+
       
-                |       |
+                  |       |
              
 +--------+     +----------+     +----------+
 
