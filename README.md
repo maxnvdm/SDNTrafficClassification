@@ -32,24 +32,31 @@ General process followed for strating traffic generation in containernet
 
 Steps followed, with commands
 1. Running ryu and Snort in controllerinet.py (on the virtual box vm):
+
 sudo ryu-manager ryu.app.simple_switch_snort
 
 1.5 (Optional, instead of 1.) Run ryu and snort along with flowmanager (web dashboard to monitor traffic):
+
 sudo ryu-manager ~/flowmanager/flowmanager.py ryu.app.simplswitch_snort
 
 2. Run containernet network (controllerinet.py)
+
 sudo python controllerinet.py
 
 3. Run test on docker host d1 (run command inside containernet)
+
 d1 python /mnt/vol1/WebTrafficSDN/vulatest.py
 
 4. Snort a specified number (100) of packets on interface snort0 and store logged file in tests dir (run on virtual box vm):
+
 sudo snort -i snort0 -l /home/osboxes/Documents/tests -n 100
 
 4.5 (Optional, instead of 4.) Use -A unsock to send alerts to ryu controller:
+
 sudo snort -i s1-eth1 -A unsock -l /home/osboxes/Documents/tests/ -c /etc/snort/snort.conf
 
 5. Rename snort log to filename.pcap
+
 sudo mv snort.log.123456 filename.pcap
 
 6.0 Edit netmate flowcalc netAI-rules-stats-ni.xml
@@ -61,9 +68,11 @@ sudo mv snort.log.123456 filename.pcap
 - sudo apt-get install libxml2-dev
 
 6.2 netmate-flowcalc, Edit netAI-rules-stats-ni.xml to output the desired file name and location.
+
 sudo netmate -r netAI-rules-stats-ni.xml -f ~/Documents/tests/outlooktestuct.pcap 
 
 7. Start weka to open flow features and train classifier
+
 java -jar weka.jar
 
 The steps taken to train a classifier are too long to detail here but can also be found on various youtube videos on using weka.
@@ -72,7 +81,9 @@ The trained classifier in weka needs to be saved (.model extension) and the snor
 
 For real-time classification, follow these steps:
 1. Run runnet.sh to start Ryu controller (running snort application) and the Containernet program (controllerinet.py)
+
 sudo bash runnet.sh
 
 2. Next run the the real-time classificaiton program in a separate terminal
+
 sudo bash classify.sh
