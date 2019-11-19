@@ -26,21 +26,22 @@ Snortprocess.sh facilitates the live classificaiton process, consisting of:
 Controllerinet.py creates the SDN using Containernet, starting the docker host and switches and then running the various tests on the docker host.
 
 Network diagram:
-      +---------------------+
+
+         +---------------------+
       
-      |      unixsock       |
+         |      unixsock       |
       
-      |    Ryu  ==  snort   |
+         |    Ryu  ==  snort   |
       
-      +----eth0-----eth1----+
+         +----eth0-----eth1----+
       
-             |       |
+                |       |
              
-+--------+   +----------+   +----------+
++--------+     +----------+     +----------+
 
-| Docker |---| OFSwitch |---| Internet |
+| Docker |- - -| OFSwitch |- - -| Internet |
 
-+--------+   +----------+   +----------+
++--------+     +----------+     +----------+
 
 Runnet.sh is a bash script which starts the ryu controller, followed by running controllerinet.py.
 This script is for ease of use and essentailly runs commands 1. and 2. in from below.
