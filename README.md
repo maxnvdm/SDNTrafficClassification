@@ -35,13 +35,13 @@ Network diagram (controller connected to OFSwitch which is connected to the dock
       
           +----eth0-----eth1----+
       
-                 |     |
+                   |     |
              
-+------+        +--------+       +--------+
+  +------+ . . . +--------+ . . . +--------+
 
-| Docker |- - -| OFSwitch |- - -| Internet |
+ | Docker |- - -| OFSwitch |- - -| Internet |
 
-+------+        +--------+       +--------+
+  +------+ . . . +--------+ . . . +--------+
 
 Runnet.sh is a bash script which starts the ryu controller, followed by running controllerinet.py.
 This script is for ease of use and essentailly runs commands 1. and 2. in from below.
